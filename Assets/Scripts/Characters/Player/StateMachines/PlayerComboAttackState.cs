@@ -43,6 +43,8 @@ public class PlayerComboAttackState : PlayerAttackState
 
         if (!stateMachine.IsAttacking) return;
 
+        stateMachine.Player.Weapon.gameObject.SetActive(true);
+        stateMachine.Player.Weapon.SetAttack(attackInfoData.Damage, attackInfoData.Force);
         alreadyApplyCombo = true;
     }
 
@@ -80,6 +82,7 @@ public class PlayerComboAttackState : PlayerAttackState
             }
             else
             {
+                stateMachine.Player.Weapon.gameObject.SetActive(false);
                 stateMachine.ChangeState(stateMachine.IdleState);
             }
         }

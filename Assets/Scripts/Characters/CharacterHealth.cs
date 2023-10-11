@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
-    private int health;
+    [SerializeField]private int maxHealth = 100;
+    public int health { get; private set; }
     public event Action OnDie;
 
     public bool IsDead => health == 0;
@@ -25,5 +25,11 @@ public class CharacterHealth : MonoBehaviour
             OnDie?.Invoke();
 
         Debug.Log(health);
+    }
+
+    public float UpdateHealthRatio()
+    {
+        float healthRatio = (float)health / maxHealth;
+        return healthRatio;
     }
 }

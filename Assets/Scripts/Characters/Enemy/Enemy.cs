@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     private EnemyStateMachine stateMachine;
 
+    private const string Message = "Victory";
+
     void Awake()
     {
         AnimationData.Initialize();
@@ -52,6 +54,8 @@ public class Enemy : MonoBehaviour
     void OnDie()
     {
         Animator.SetTrigger("Die");
+        SetUI.Instance.SetGameObjectActive(true);
+        SetUI.Instance.SetLabelText(Message);
         enabled = false;
     }
 }

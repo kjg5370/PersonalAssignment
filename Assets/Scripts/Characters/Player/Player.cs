@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     private PlayerStateMachine stateMachine;
 
+    private const string Message = "GameOver";
     private void Awake()
     {
         AnimationData.Initialize();
@@ -54,6 +55,8 @@ public class Player : MonoBehaviour
     void OnDie()
     {
         Animator.SetTrigger("Die");
+        SetUI.Instance.SetGameObjectActive(true);
+        SetUI.Instance.SetLabelText(Message);
         enabled = false;
     }
 }

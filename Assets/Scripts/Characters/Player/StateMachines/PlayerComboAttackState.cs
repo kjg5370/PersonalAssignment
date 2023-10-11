@@ -43,8 +43,6 @@ public class PlayerComboAttackState : PlayerAttackState
 
         if (!stateMachine.IsAttacking) return;
 
-        stateMachine.Player.Weapon.gameObject.SetActive(true);
-        stateMachine.Player.Weapon.SetAttack(attackInfoData.Damage, attackInfoData.Force);
         alreadyApplyCombo = true;
     }
 
@@ -72,6 +70,8 @@ public class PlayerComboAttackState : PlayerAttackState
 
             if (normalizedTime >= attackInfoData.ComboTransitionTime)
                 TryComboAttack();
+            stateMachine.Player.Weapon.gameObject.SetActive(true);
+            stateMachine.Player.Weapon.SetAttack(attackInfoData.Damage, attackInfoData.Force);
         }
         else
         {

@@ -2,9 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUI : MonoBehaviour
+public class CharacterUI : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI healthText;
+    [SerializeField] private TextMeshProUGUI NameText;
     [SerializeField]private Slider hp_slider;
     private CharacterHealth characterHealth;
     private Camera mainCamera;
@@ -15,7 +16,7 @@ public class HealthUI : MonoBehaviour
         mainCamera = Camera.main;
         healthBarRectTransform = GetComponent<RectTransform>();
         characterHealth = GetComponentInParent<CharacterHealth>();
-
+        NameText.text = transform.parent.name;
     }
 
     private void Update()

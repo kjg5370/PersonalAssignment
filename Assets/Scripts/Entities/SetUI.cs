@@ -40,4 +40,14 @@ public class SetUI : MonoBehaviour
         Cursor.visible = true;
         canvas.SetActive(isActive);
     }
+    public void ToggleActiveState(GameObject targetObject)
+    {
+        if (targetObject != null)
+        {
+            bool isActive = targetObject.activeSelf; // 현재 상태 확인
+
+            // 현재 상태에 따라 반대로 상태 변경
+            targetObject.SetActive(!isActive);
+        }
+    }
 }

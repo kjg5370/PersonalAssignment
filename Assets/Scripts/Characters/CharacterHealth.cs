@@ -23,8 +23,6 @@ public class CharacterHealth : MonoBehaviour
 
         if (health == 0)
             OnDie?.Invoke();
-
-        Debug.Log(health);
     }
 
     public float UpdateHealthRatio()
